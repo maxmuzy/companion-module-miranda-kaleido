@@ -1,78 +1,34 @@
-import { Regex } from '@companion-module/base'
-
-const REGEX_IP_OR_HOST =
-	'/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3})$|^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]).)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]))$/'
+// ============================================================
+//  companion-module-miranda-kaleido — config.js
+//  Exported as a named constant array (ConfigFields),
+//  matching the pattern of the upstream generic-tcp-udp module.
+// ============================================================
 
 export const ConfigFields = [
 	{
 		type: 'static-text',
 		id: 'info',
 		label: 'Information',
+		value:
+			'Controls a Miranda Kaleido-Alto, Kaleido-Quad or Kaleido-Quad-Dual ' +
+			'multi-viewer via the Gateway XML protocol over TCP/IP (port 13000).',
 		width: 12,
-		value: `
-				<div class="alert alert-danger">
-					<h3>IMPORTANT MESSAGE</h3>
-					<div>
-						<strong>Please read and understand the following before using this module</strong>
-						<br>
-						The companion project is designed to make the everyday life of a technician easier.
-						We prefer to have ready made actions, presets and feedbacks for as many products as possible.<p>
-            This generic TCP/UDP module is intended for testing or small-scale products.
-						<ul>
-							<li>You shoudn't need to find, program and send raw TCP commands</li>
-							<li>If you have or use a product we don't support, please file a module request for it</li>
-							<li>Do you think your product/device is too insignificant to make a module for? It's probably not.</li>
-							<li>Properitary/inhouse products can also have their own modules.</li>
-							<li>With generic modules you won't get nice things like presets and feedback</li>
-						</ul>
-						<a href="https://github.com/bitfocus/companion-module-requests/issues" target="_new" class="btn btn-warning mr-1">See current requests</a>
-						<a href="https://github.com/bitfocus/companion-module-requests/issues/new" target="_new" class="btn btn-success">Request support for a product</a>
-					</div>
-				</div>
-			`,
 	},
 	{
 		type: 'textinput',
 		id: 'host',
-		label: 'Target Host name or IP',
+		label: 'Kaleido IP Address',
 		width: 8,
-		regex: REGEX_IP_OR_HOST,
+		default: '',
+		required: true,
 	},
 	{
-		type: 'textinput',
+		type: 'number',
 		id: 'port',
-		label: 'Target Port',
+		label: 'TCP Port',
 		width: 4,
-		default: 7000,
-		regex: Regex.PORT,
-	},
-	{
-		type: 'dropdown',
-		id: 'prot',
-		label: 'Connect with TCP / UDP',
-		default: 'tcp',
-		choices: [
-			{ id: 'tcp', label: 'TCP' },
-			{ id: 'udp', label: 'UDP' },
-		],
-	},
-	{
-		type: 'checkbox',
-		id: 'saveresponse',
-		label: 'Save TCP Response',
-		default: false,
-		isVisible: (configValues) => configValues.prot === 'tcp',
-	},
-	{
-		type: 'dropdown',
-		id: 'convertresponse',
-		label: 'Convert TCP Response Format',
-		default: 'none',
-		choices: [
-			{ id: 'none', label: 'No conversion' },
-			{ id: 'hex', label: 'To Hex' },
-			{ id: 'string', label: 'To String' },
-		],
-		isVisible: (configValues) => configValues.prot === 'tcp' && !!configValues.saveresponse,
+		default: 13000,
+		min: 1,
+		max: 65535,
 	},
 ]

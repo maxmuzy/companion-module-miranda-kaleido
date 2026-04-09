@@ -1,0 +1,30 @@
+{
+  "id": "miranda-kaleido",
+  "name": "Miranda Kaleido (Gateway)",
+  "shortname": "Kaleido",
+  "description": "Control Miranda Kaleido-Alto, Kaleido-Quad and Kaleido-Quad-Dual multi-viewers via the Gateway XML protocol over TCP/IP (port 13000).",
+  "version": "1.0.0",
+  "manufacturer": "Miranda Technologies",
+  "products": [
+    "Kaleido-Alto",
+    "Kaleido-Quad",
+    "Kaleido-Quad-Dual"
+  ],
+  "keywords": [
+    "multiviewer",
+    "kaleido",
+    "miranda",
+    "gateway",
+    "tcp"
+  ],
+  "bugs": {
+    "url": "https://github.com/maxmuzy/companion-module-miranda-kaleido/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxmuzy/companion-module-miranda-kaleido.git"
+  },
+  "license": "MIT",
+  "runtime": "nodejs",
+  "entrypoint": "../index.js"
+}

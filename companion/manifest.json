@@ -1,9 +1,9 @@
 {
-	"id": "generic-tcp-udp",
-	"name": "generic-tcp-udp",
-	"shortname": "tcp-udp",
-	"description": "Generic TCP and UDP",
-	"version": "0.0.0",
+	"id": "miranda-kaleido",
+	"name": "Miranda Kaleido",
+	"shortname": "miranda-kaleido",
+	"description": "Miranda Kaleido module for Companion",
+	"version": "1.0.0",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-generic-tcp-udp.git",
 	"bugs": "https://github.com/bitfocus/companion-module-generic-tcp-udp/issues",
@@ -32,7 +32,7 @@
 		"apiVersion": "0.0.0",
 		"entrypoint": "../index.js"
 	},
-	"manufacturer": "Generic",
-	"products": ["TCP and UDP Requests"],
-	"keywords": ["Protocol", "Generic"]
+	"manufacturer": "Miranda Technologies",
+	"products": ["Kaleido"],
+	"keywords": ["Protocol", "Miranda", "Kaleido", "TCP"]
 }
